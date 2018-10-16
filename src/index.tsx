@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import { createStore } from 'redux'
 import { Provider  } from 'react-redux'
 import rootReducer from './models/reducer'
@@ -13,13 +13,26 @@ import registerServiceWorker from './registerServiceWorker'
 // creae store
 const store = createStore(rootReducer)
 // const history = syncHistoryWithStore(browserHistory, store)
+const redirectToLogin = (props: any): any => {
+  return (
+    <Redirect
+      to={{
+        pathname: '/login',
+        state: {
+          from: props.location || '/'
+        },
+      }}
+    />
+  )
+}
 ReactDOM.render(
   <Router>
     <Switch>
       <Provider store={store}>
         <App>
-          <Route exact={true} path="/" component={Home} />
+          <Route exact={true} path="/" render={redirectToLogin}/>
           <Route path="/login" component={Login} />
+          <Route path="/home" component={Home} />
         </App>
       </Provider>
     </Switch>
