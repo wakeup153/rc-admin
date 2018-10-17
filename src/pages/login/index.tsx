@@ -6,8 +6,15 @@ interface InterfaceForHistory {
 }
 export interface InterfaceForLogin {
   history: InterfaceForHistory,
+  dispatch: ({}: {type ?: string, payload ?: object}) => void,
 }
 class Login extends React.Component<InterfaceForLogin, object> {
+  public componentDidMount = (): void => {
+    const { dispatch } = this.props
+    dispatch({
+      type: 'LOGIN',
+    })
+  }
   public handleClick = (): void => {
     const { history } = this.props
     history.push('/')
