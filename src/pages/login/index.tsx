@@ -13,6 +13,7 @@ class Login extends React.Component<InterfaceForLogin, object> {
     history.push('/')
   }
   public render () {
+    console.log('props', this.props)
     return (
       <div onClick={this.handleClick}>
         Login
