@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
   public render () {
+    console.log('home', this.props)
     return (
       <div>
         Home

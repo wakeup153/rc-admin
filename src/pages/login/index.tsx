@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 
-interface InterfaceForHistory {
-  push: (path ?: string, state ?: object) => void,
-}
+// interface InterfaceForHistory {
+//   push: (path ?: string, state ?: object) => void,
+// }
 export interface InterfaceForLogin {
-  history: InterfaceForHistory,
+  // history: InterfaceForHistory,
   dispatch: ({}: {type ?: string, payload ?: object}) => void,
 }
 class Login extends React.Component<InterfaceForLogin, object> {
@@ -16,11 +17,10 @@ class Login extends React.Component<InterfaceForLogin, object> {
     })
   }
   public handleClick = (): void => {
-    const { history } = this.props
-    history.push('/')
+    const { dispatch } = this.props
+    dispatch(push('/'))
   }
   public render () {
-    console.log('props', this.props)
     return (
       <div onClick={this.handleClick}>
         Login
