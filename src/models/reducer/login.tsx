@@ -1,4 +1,5 @@
 import { loginAction } from '../actions/login'
+import { loginInitState } from '../state'
 import { LOGIN, LOGOUT } from '../actionTypes/login'
 
 export interface InterfaceForStoreState {
@@ -7,7 +8,7 @@ export interface InterfaceForStoreState {
   id ?: string,
 }
 
-export default (state: InterfaceForStoreState = {}, action: loginAction): InterfaceForStoreState => {
+export default (state: InterfaceForStoreState = loginInitState, action: loginAction): InterfaceForStoreState => {
   switch (action.type) {
     case LOGIN:
       return {

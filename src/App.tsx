@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Switch } from 'react-router-dom'
+import { Switch, withRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 import routes from './router'
 import './App.css'
@@ -35,4 +35,6 @@ class App extends React.Component<InterfaceForApp, {}> {
   }
 }
 
-export default App
+export default withRouter((props) => (
+  <App {...props} />
+))
