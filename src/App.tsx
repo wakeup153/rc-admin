@@ -2,7 +2,8 @@ import * as React from 'react'
 import { Switch, withRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 import routes from './router'
-import './App.css'
+
+const styles = require('./App.less')
 
 export interface InterfaceForApp {
   children ? : any
@@ -24,7 +25,7 @@ export interface InterfaceForApp {
 class App extends React.Component<InterfaceForApp, {}> {
   public render() {
     return (
-      <div className="app">
+      <div className={styles.App}>
         <Switch>
           {
             renderRoutes(routes)

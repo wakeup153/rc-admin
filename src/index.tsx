@@ -9,7 +9,7 @@ import createSagaMiddleWare from 'redux-saga'
 import rootReducer from './models/reducer'
 import rootSaga from './models/saga'
 import App from './App'
-import './index.css'
+import './index.less'
 import registerServiceWorker from './registerServiceWorker'
 
 // create history
